@@ -31,6 +31,15 @@ int main()
    b=d/f;
    c=d/g;
    printf("The swapped values of a= %d , b= %d , c= %d\n",a,b,c);
+ 
+   scanf("%d %d %d",&a,&b,&c);
+   printf("The values of a= %d , b= %d , c= %d\n",a,b,c); //Logic 4
+   d=a;
+   e=b;
+   a=c;
+   b=d;
+   c=e;
+   printf("The swapped values of a= %d , b= %d , c= %d\n",a,b,c);
    
 
    
