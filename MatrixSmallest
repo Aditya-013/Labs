@@ -1,0 +1,71 @@
+#include<stdio.h>
+void main() 
+ { 
+   int x1,x2,x3,x4,y1,y2,y3,y4,multi1=1,multi2=1,multi3=1,multi4=1,multi5=1,xn1,yn1,xn2,yn2,smallest;
+   scanf("%d%d%d%d%d%d%d%d",&x1,&x2,&x3,&x4,&y1,&y2,&y3,&y4);
+   if( x1!=y2 || x2!=y1 ||  x2!=y3 || x3!=y2 || x3!=y4 || x4!=y3)
+     {
+       printf("They cannot be multiplied together\n"); 
+     }
+   else
+     {
+       multi1=multi1*x1*x2*y1;             //((AB)C)D
+       xn1=x2;
+       yn1=y1;
+       multi1=multi1+xn1*x3*yn1;
+       xn2=x3;
+       yn2=yn1;
+       multi1=multi1+xn2*x4*yn2;
+
+       multi2=multi2*x2*x3*y2;             //(A(BC))D
+       xn1=x3;
+       yn1=y2;
+       multi2=multi2+x1*xn1*y1;
+       xn2=xn1;
+       yn2=y1;
+       multi1=multi1+xn2*x4*yn2;
+
+       multi3=multi3*(x1*x2*y1 + x3*x4*y3) ;   //(AB)(CD)
+       xn1=x2;
+       yn1=y1;
+       xn2=x4;
+       yn2=y3;
+       multi3=multi3 + xn1*xn2*yn1;
+
+       multi4=multi4*x2*x3*y2;         //A((BC)D)
+       xn1=x3;
+       yn1=y2;
+       multi4 = multi4 + xn1*x4*yn1;
+       xn2=x4;
+       yn2=yn1;
+       multi4 = multi4 + x1*xn2*y1;
+
+       multi5 = multi5 * x3*x4*y3;    //A(B(CD))
+       xn1 = x4;
+       yn1 = y3;
+       multi5 = multi5 + x2*xn1*y2;
+       xn2 = xn1; 
+       yn2 = x2;
+       multi5 = multi5 + x1*xn2*y1;
+     }
+  
+   smallest = multi1;
+   int j=1;
+   if(multi2 < smallest) 
+  {
+    smallest = multi2;
+    j=2;
+  }
+   if(multi3 < smallest) 
+  {
+    smallest = multi3;
+    j=3;
+  }
+   if(multi4 < smallest) 
+  {
+    smallest = multi4;
+    j=4;
+  }
+  
+  printf("The smallest method is %d and it takes %d number of steps" , j , smallest);
+ } 
